@@ -103,6 +103,7 @@ primary key(id)
 3. Aggregate function :-
 It does some operation and returns single value.
 Count(colName) , Max(colName) , Min(colName) , Sum(colName) , Avg(colName)
+
 4. Group by clause :
 Most of the with group by we use aggregate function .
 Select city , count(rollNo) from student group by city;
