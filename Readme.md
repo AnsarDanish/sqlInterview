@@ -70,7 +70,9 @@ value should be consistence. Take example of A, B and C account .
 Isolation:- the term isolation means separation. Isolation property ensures that no data get effect by concurrently.
 Means simultaneously in database there should allowed to read and write data multiple thread.
 Durability:- it ensure that after every transaction there must be commit and rollback if transaction get failed.
-Sql database vs No Sql database
+
+
+******  Sql database vs No Sql database
 Sql:- sql database have fixed or predefine schema. It is structured data base.
 Sql database are best suited for complex queries or object . data is stored in column and row format
 Nosql:- no sql does not have fixed and predefine schema. It is not structured data base.
