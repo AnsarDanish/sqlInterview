@@ -204,3 +204,23 @@ Benefits of 3NF:
 No transitive dependencies: Customer details are now stored in a separate table, eliminating redundancy and ensuring better data integrity.
 Easier updates: If a customer’s phone number changes, we only need to update it in one place (in the Customers table).
 
+******* insert, update and delete
+Imagine a table that stores information about students and their courses:
+
+Student_ID	Student_Name	Course_ID	Course_Name
+101	Alice	CS101	Computer Science
+102	Bob	MA102	Mathematics
+Problem: If a new course is to be added, say "Physics (PH103)", but no student has enrolled yet, you cannot insert this course because the Student_ID field would be NULL. This is an insert anomaly since you are forced to wait for a student to enroll to insert the course
+
+
+Problem: If the fee for the "Computer Science" course changes, you would need to update the fee for all rows where Course_ID = CS101. If you miss any row, it leads to inconsistent data. This is an update anomaly.
+
+
+Suppose you have this data in a table where students and their course information are stored together:
+
+Student_ID	Student_Name	Course_ID	Course_Name
+101	Alice	CS101	Computer Science
+102	Bob	CS101	Computer Science
+103	Charlie	MA102	Mathematics
+Problem: If Charlie (who is the only student taking "Mathematics") drops out of the course, and you delete his record, you also lose the information about the "Mathematics" course itself. This is a delete anomaly because deleting one piece of data results in the unintended deletion of other critical data.
+
