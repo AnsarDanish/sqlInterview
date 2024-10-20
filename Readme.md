@@ -141,3 +141,66 @@ Assume we have employee table . in which we have employees details but in the sa
 name is manager_id . for each employee there is writtern over ther manager_id . and manager also itself a employee
 whos information is also in the same table. And manager id actually referencing to emp_id.
 Select a.id, a.name , b.name as manager_name from emp as a join emp as b on a.id=b.manager_id .
+
+
+******   normalization
+
+Normalization in a database is the process of organizing data to reduce redundancy and improve data integrity. The primary goal is to divide larger tables into smaller ones and establish relationships between them to minimize duplicate data.w
+when we have normalized database then we can't face the problem of insert update and delete anomalies. 
+
+there are 5 steps to normalized database. that is known as 1NF , 2NF , 3NF , 4NF 5NF, normally till 3NF IS followed. 
+
+1NF :- It ensure that 
+ the table must have atomic value ( meantin eachtrow of each coulmn there should not be commad seprated value. 
+and each row should be unique. 
+
+2NF :-it  ensure that database must follow 1NF . 
+and 2nd is that all non key attribute or column must have fully dependency on primary key column. 
+
+ex: - 
+orderId    CustomerName    Item    totalPrice
+
+so over customer name is only depends on order id not on item. so it creates partial dependency to solve this
+
+we should create another table
+
+orderId   item
+
+advantage :-  over here in 1st table customer information will not get repeat for each item. 
+
+3Nf :- it is already following 2NF
+
+There are no transitive dependencies (a non-key attribute should not depend on another non-key attribute).
+What is a transitive dependency?
+A transitive dependency occurs when a non-key attribute depends on another non-key attribute, rather than depending directly on the primary key.
+
+Example:
+Let’s now add customer contact information to the Orders table:
+
+OrderID	CustomerName	CustomerPhone	TotalPrice
+101 	John  	123-456-7890	  50
+102	  Alice	  987-654-3210  	20
+
+Issue in 3NF:
+CustomerPhone depends on CustomerName, not on OrderID. This creates a transitive dependency.
+Convert to 3NF:
+To eliminate the transitive dependency, we move customer information into a separate table:
+
+Convert to 3NF:
+To eliminate the transitive dependency, we move customer information into a separate table:
+
+Table 1: Orders
+
+OrderID	CustomerID	TotalPrice
+101	1	50
+102	2	20
+Table 2: Customers
+
+CustomerID	CustomerName	CustomerPhone
+1	John	123-456-7890
+2	Alice	987-654-3210
+
+Benefits of 3NF:
+No transitive dependencies: Customer details are now stored in a separate table, eliminating redundancy and ensuring better data integrity.
+Easier updates: If a customer’s phone number changes, we only need to update it in one place (in the Customers table).
+
