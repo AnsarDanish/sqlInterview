@@ -67,6 +67,7 @@ within a transaction should completed successfully, or else if any of them get f
 reflect on database.
 Consistency:- the word consistency means that the value should remain preserved always. After the transaction the
 value should be consistence. Take example of A, B and C account .
+it ensure that database remains in a valid state before and after the transaction.
 Isolation:- the term isolation means separation. Isolation property ensures that no data get effect by concurrently.
 Means simultaneously in database there should allowed to read and write data multiple thread.
 Durability:- it ensure that after every transaction there must be commit and rollback if transaction get failed.
